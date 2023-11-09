@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api', routes);
 
-const port = require('.env'./.env).PORT || 7777;
+const port = require('.env').PORT || 7777;
 
 
 module.exports = app;
