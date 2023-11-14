@@ -1,0 +1,103 @@
+.hero-hero {
+	font: 'Star Jedi';
+	width: 100%;
+	height: 1072px;
+	display: flex;
+	position: relative;
+	min-height: 80vh;
+	align-items: center;
+	flex-direction: column;
+	background-size: cover;
+	justify-content: center;
+	background-image: linear-gradient(180deg, rgba(102, 110, 118, 0.72) 41.00%, rgba(102, 110, 118, 0.82) 68.00%, rgba(189, 195, 199, 0.61) 99.00%), url("/unsplash-image-1100h.jpeg");
+}
+
+.hero-text {
+	color: var(--dl-color-gray-white);
+	font-size: 3rem;
+}
+
+.hero-text1 {
+	color: var(--dl-color-gray-white);
+	margin-top: var(--dl-space-space-twounits);
+	margin-bottom: var(--dl-space-space-twounits);
+}
+
+.hero-btn-group {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+}
+
+.hero-button {
+	font-size: 0.75rem;
+	transition: 0.3s;
+	padding-top: var(--dl-space-space-unit);
+	border-width: 0px;
+	padding-left: var(--dl-space-space-twounits);
+	padding-right: var(--dl-space-space-twounits);
+	padding-bottom: var(--dl-space-space-unit);
+	text-transform: uppercase;
+}
+
+.hero-button:hover {
+	transform: scale(1.02);
+}
+
+.hero-button1 {
+	color: var(--dl-color-gray-white);
+	font-size: 0.75rem;
+	transition: 0.3s;
+	margin-left: var(--dl-space-space-unit);
+	padding-top: var(--dl-space-space-unit);
+	border-color: var(--dl-color-gray-white);
+	padding-left: var(--dl-space-space-twounits);
+	padding-right: var(--dl-space-space-twounits);
+	padding-bottom: var(--dl-space-space-unit);
+	text-transform: uppercase;
+	background-color: transparent;
+}
+
+.hero-button1:hover {
+	transform: scale(1.02);
+}
+
+@media(max-width: 991px) {
+	.hero-hero {
+		flex-direction: column;
+	}
+
+	.hero-text {
+		text-align: center;
+	}
+
+	.hero-text1 {
+		text-align: center;
+	}
+}
+
+@media(max-width: 767px) {
+	.hero-hero {
+		padding-left: var(--dl-space-space-twounits);
+		padding-right: var(--dl-space-space-twounits);
+	}
+}
+
+@media(max-width: 479px) {
+	.hero-hero {
+		width: 100%;
+		padding: var(--dl-space-space-twounits);
+		padding-top: var(--dl-space-space-twounits);
+		padding-left: var(--dl-space-space-unit);
+		padding-right: var(--dl-space-space-unit);
+	}
+
+	.hero-btn-group {
+		flex-direction: column;
+	}
+
+	.hero-button1 {
+		margin-top: var(--dl-space-space-unit);
+		margin-left: 0px;
+	}
+}

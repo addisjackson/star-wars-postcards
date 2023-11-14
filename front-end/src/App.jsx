@@ -6,7 +6,7 @@ import Index from './Pages/Index';
 import Show from './Pages/Show';
 import Four0Four from './Pages/Four0Four';
  
-import './App.css'
+import '../src/Stylesheets/App.css'
 
 function App() {
   return (

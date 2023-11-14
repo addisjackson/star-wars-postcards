@@ -1,8 +1,8 @@
 import React from 'react'
-
-function Postcard() {
+import {Link} from 'react-router-dom'
+function Postcard({postcard, id}) {
   return (
-	<div>Postcard</div>
+	<div className="card-container"></div>
   )
 }
 
