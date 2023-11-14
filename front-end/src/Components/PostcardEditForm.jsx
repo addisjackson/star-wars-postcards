@@ -9,7 +9,7 @@ function PostcardEditForm() {
   const [ date, setDate] = useState("")
 	const [postcard, setPostcard] = useState({
     message: "",
-    MeasetMessage: "",
+    name: "",
     date: ""
 	});
 
