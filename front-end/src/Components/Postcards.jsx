@@ -1,4 +1,5 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
+import { Stack } from "@chakra-ui/react";
 import Postcard from "./Postcard";
 
 const API = import.meta.env.VITE_API_URL;
@@ -20,31 +21,21 @@ function Postcards() {
 	
 
 	return (
-		<div className='Postcards'>
-			<section>
-				<table>
-					<thead>
-						<tr>
-							<th>Message</th>
-							<th>Name</th>
-							<th>Date</th>
-						</tr>
-					</thead>
-					<tbody>
-						{postcards.map((postcard, index) => {
-							return (
-								<Postcard
-									key={index}
-									postcard={postcard}
-									index={index}
+		<Stack>
+			<div className='Postcards'>
+				{ postcards.map( ( postcard, index ) =>
+				{
+				return (
+					<Postcard
+						key={id}
+						postcard={postcard}
+						index={index}
 								/>
-							);
-						})}
-					</tbody>
-				</table>
-			</section>
-		</div>
-	);
+					);
+				})}
+			</div>
+		</Stack>
+			);
 }
 
 export default Postcards;

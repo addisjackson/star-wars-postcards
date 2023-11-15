@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import {Link, useParams, useNavigate} from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import {Heading} from '@chakra-ui/react'
 
 const API = import.meta.env.VITE_API_URL
 function PostcardDetails() {
@@ -35,8 +36,20 @@ function PostcardDetails() {
    
 
   return (
-	<div></div> 
+    <div className='postcard-details'>
+      <Heading as='h3'>{ postcard.name }</Heading>
+      <br />
+      <Heading as='h4'>{ planet.population }</Heading>
+      <br />
+      <span>{ planet.terrain }</span>
+      { planet.residents.map( ( resident ) =>
+      {
+        return (
+        <p>{resident}</p>
+        )
+      })}
 
+    </div> 
   )
 }
 
