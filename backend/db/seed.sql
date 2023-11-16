@@ -1,152 +1,57 @@
-INSERT INTO planets (name) VALUES
- ('Tatooine');
- ('Naboo');
- ('Alderaan');
- ('Yavin IV');
- ('Hoth');
- ('Dagobah');
- ('Bespin');
- ('Endor');
- ('Nal Huttal');
- ('Coruscant');
- ('Kamino');
- ('Geonosis');
- ('Utapau');
- ('Mustafar');
- ('Kashyyyk');
- ('Polis Massa');
- ('Mygeeto');
- ('Felucia');
- ('Cato Neimoidia');
- ('Saleucami');
- ('Stewjon');
- ('Eriadu');
- ('Corellia');
- ('Rodia');
- ('Nal Hutta');
- ('Dantooine');
- ('Bestine IV');
- ('Ord Mantell');
- ('Trandosha');
- ('Socorro');
- ('Mon Cala');
- ('Chandrila');
- ('Sullust');
- ('Toydaria');
- ('Malastare');
- ('Dathomir');
- ('Ryloth');
- ('Aleen Minor');
- ('Vulpter');
- ('Tund');
- ('Cerea');
- ('Glee Anselm');
- ('Iridonia');
- ('Tholoth');
- ('Iktotch');
- ('Quermia');
- ('Dorin');
- ('Champala');
- ('Mirial');   
 
- INSERT INTO films (title) VALUES
- ('A New Hope');
- ('The Empire Strikes Back');
- ('Return of the Jedi');
- ('The Phantom Menace');
- ('Attack of the Clones');
- ('Revenge of the Sith');
- ('The Force Awakens');
- ('The Last Jedi');
- ('The Rise of Skywalker');
-
- INSERT INTO planets_films (planet_id, film_id) VALUES
- (1, 1),
- (2, 2),
- (3, 3),
- (4, 4),
- (5, 5),
- (6, 6),
- (7, 7),
- (8, 8),
- (9, 9),
- (10, 10),
- (11, 11),
- (12, 12),
- (13, 13),
- (14, 14),
- (15, 15),
- (16, 16),
- (17, 17),
- (18, 18),
- (19, 19),
- (20, 20),
- (21, 21),
- (22, 22),
- (23, 23),
- (24, 24),
- (25, 25),
- (26, 26),
- (27, 27),
- (28, 28),
- (29, 29),
- (30, 30),
- (31, 31),
- (32, 32),
- (33, 33),
- (34, 34),
- (35, 35),
- (36, 36),
- (37, 37),
- (38, 38),
+INSERT INTO planets (name, diameter, climate, temperature, terrain, population, residents, species, films, synopsis) VALUES
+('Tatooine', 10465, 'Arid', 'Hot', 'Desert', 200000, '["Anakin Skywalker", "Luke Skywalker"]', '["Human"]', '["A New Hope", "The Phantom Menace"]', 'Desert planet with twin suns.'),
+('Coruscant', 12240, 'Temperate', 'Moderate', 'City-covered', 1000000000, '["Palpatine", "Anakin Skywalker"]', '["Human"]', '["The Phantom Menace", "Attack of the Clones", "Revenge of the Sith"]', 'City-covered planet, capital of the Republic.'),
+('Endor', 4900, 'Temperate', 'Moderate', 'Forest', 30000000, '["Wicket W. Warrick"]', '["Ewok"]', '["Return of the Jedi"]', 'Forest moon with Ewoks.'),
+('Naboo', 12120, 'Temperate', 'Moderate', 'Grass-covered', 4500000000, '["Padmé Amidala", "Jar Jar Binks"]', '["Human", "Gungan"]', '["The Phantom Menace", "Attack of the Clones", "The Clone Wars"]', 'Grass-covered planet with lakes.'),
+('Alderaan', 12500, 'Temperate', 'Moderate', 'Grasslands', 2000000000, '["Bail Organa", "Leia Organa"]', '["Human"]', '["A New Hope"]', 'Destroyed planet with peaceful inhabitants.'),
+('Kashyyyk', 12765, 'Tropical', 'Hot', 'Forests', 45000000, '["Chewbacca"]', '["Wookiee"]', '["Revenge of the Sith"]', 'Wookiee homeworld with massive trees.'),
+('Mustafar', 4200, 'Hot', 'Scorching', 'Volcanic', 20000, '[]', '["Mustafarian"]', '["Revenge of the Sith"]', 'Volcanic planet with lava rivers.'),
+('Jakku', 6610, 'Arid', 'Hot', 'Desert', 50000, '["Rey"]', '[]', '["The Force Awakens"]', 'Desert scavenger planet.'),
+('Hoth', 7200, 'Frozen', 'Frigid', 'Icy', 0, '[]', '[]', '["The Empire Strikes Back"]', 'Icy planet with Rebel Alliance base.'),
+('Dagobah', 8900, 'Murky', 'Humid', 'Swampy', 0, '["Yoda"]', '[]', '["The Empire Strikes Back", "Return of the Jedi"]', 'Swampy planet, Yoda\s exile location.'),
+('Geonosis', 11370, 'Arid', 'Hot', 'Rocky', 100000000, '[]', '["Geonosian"]', '["Attack of the Clones"]', 'Rocky planet with droid factories.'),
+('Kamino', 19720, 'Temperate', 'Mild', 'Ocean', 1000000000, '["Jango Fett"]', '["Kaminoan"]', '["Attack of the Clones"]', 'Ocean planet with cloning facilities.'),
+('Utapau', 12900, 'Temperate', 'Mild', 'Sinkholes', 95000000, '[]', '["Pau/an"]', '["Revenge of the Sith"]', 'Sinkhole planet with General Grievous.'),
+('Crait', 4800, 'Arid', 'Hot', 'Salt flats', 0, '[]', '[]', '["The Last Jedi"]', 'Salt-covered planet with abandoned Rebel base.'),
+('Jedha', 11980, 'Arid', 'Hot', 'Desert', 1100000, '[]', '[]', '["Rogue One"]', 'Holy city destroyed by the Death Star.'),
+('Sullust', 12180, 'Superheated', 'Hot', 'Volcanic', 185000000, '[]', '["Sullustan"]', '["Return of the Jedi"]', 'Volcanic planet with manufacturing facilities.'),
+('Mon Cala', 11030, 'Wet', 'Temperate', 'Ocean', 270000000, '["Admiral Ackbar"]', '["Mon Calamari"]', '["Return of the Jedi"]', 'Ocean planet, home of the Mon Calamari.'),
+('Mygeeto', 10088, 'Frozen', 'Frigid', 'Icy', 19000000, '[]', '[]', '["Revenge of the Sith"]', 'Icy-cold planet with crystal formations.'),
+('Mandalore', 11186, 'Temperate', 'Mild', 'Grasslands', 1200000000, '["Duchess Satine", "Pre Vizsla"]', '["Human", "Mandalorian"]', '["The Clone Wars", "Rebels"]', 'Homeworld of the Mandalorians.'),
+('Umbara', 9750, 'Shadow', 'Unknown', 'Forest', 9500000, '[]', '[]', '["The Clone Wars"]', 'Shadowy and dark, home to Umbarans.'),
+('Felucia', 9100, 'Hot', 'Tropical', 'Jungle', 8500000, '[]', '["Felucian"]', '["Revenge of the Sith"]', 'Jungle planet with unique flora.'),
+('Dathomir', 10480, 'Temperate', 'Mild', 'Forests', 5200, '["Mother Talzin", "Darth Maul"]', '["Dathomirian"]', '["The Clone Wars"]', 'Home to the Nightsisters and Darth Maul.'),
+('Lothal', 10380, 'Temperate', 'Mild', 'Grasslands', 5000000, '["Ezra Bridger"]', '["Human"]', '["Rebels"]', 'Grassland planet with Imperial presence.'),
+('Yavin 4', 10200, 'Temperate', 'Mild', 'Jungle', 1000, '[]', '[]', '["A New Hope"]', 'Moon housing the Rebel base.'),
+('Kessel', 2000, 'Arid', 'Hot', 'Rocky', 50000, '[]', '["Wookiee"]', '["Solo"]', 'Spice mines and the Kessel Run.'),
+('Scarif', 900, 'Tropical', 'Hot', 'Islands', 200500, '[]', '[]', '["Rogue One"]', 'Imperial security complex.');
 
 
- INSERT INTO postcards (name, image_url) VALUES
- ('Tatooine', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Tatooine-Postcards-1.jpg'),
- ('Naboo', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Naboo-Postcards-1.jpg'),
- ('Alderaan', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Alderaan-Postcards-1.jpg'),
- ('Yavin IV', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Yavin-IV-Postcards-1.jpg'),
- ('Hoth', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Hoth-Postcards-1.jpg'),
- ('Dagobah', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Dagobah-Postcards-1.jpg'),
- ('Bespin', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Bespin-Postcards-1.jpg'),
- ('Endor', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Endor-Postcards-1.jpg'),
- ('Nal Huttal', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Nal-Huttal-Postcards-1.jpg'),
- ('Coruscant', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Coruscant-Postcards-1.jpg'),
- ('Kamino', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Kamino-Postcards-1.jpg'),
- ('Geonosis', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Geonosis-Postcards-1.jpg'),
- ('Utapau', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Utapau-Postcards-1.jpg'),
- ('Mustafar', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Mustafar-Postcards-1.jpg'),
- ('Kashyyyk', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Kashyyyk-Postcards-1.jpg'),
- ('Polis Massa', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Polis-Massa-Postcards-1.jpg'),
- ('Mygeeto', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Mygeeto-Postcards-1.jpg'),
- ('Felucia', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Felucia-Postcards-1.jpg'),
- ('Cato Neimoidia', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Cato-Neimoidia-Postcards-1.jpg'),
- ('Saleucami', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Saleucami-Postcards-1.jpg'),
- ('Dantooine', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Dantooine-Postcards-1.jpg'),
- ('Bestine IV', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Bestine-IV-Postcards-1.jpg'),
- ('Ord Mantell', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Ord-Mantell-Postcards-1.jpg'),
- ('Trandosha', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Trandosha-Postcards-1.jpg'),
- ('Socorro', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Socorro-Postcards-1.jpg'),
- ('Mon Cala', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Mon-Cala-Postcards-1.jpg'),
- ('Chandrila', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Chandrila-Postcards-1.jpg'),
- ('Sullust', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Sullust-Postcards-1.jpg'),
- ('Toydaria', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Toydaria-Postcards-1.jpg'),
- ('Malastare', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Malastare-Postcards-1.jpg'),
- ('Dathomir', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Dathomir-Postcards-1.jpg'),
- ('Ryloth', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Ryloth-Postcards-1.jpg'),
- ('Aleen Minor', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Aleen-Minor-Postcards-1.jpg'),
- ('Vulpter', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Vulpter-Postcards-1.jpg'),
- ('Tund', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Tund-Postcards-1.jpg'),
- ('Cerea', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Cerea-Postcards-1.jpg'),
- ('Glee Anselm', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Glee-Anselm-Postcards-1.jpg'),
- ('Iridonia', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Iridonia-Postcards-1.jpg'),
- ('Tholoth', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Tholoth-Postcards-1.jpg'),
- ('Iktotch', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Iktotch-Postcards-1.jpg'),
- ('Quermia', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Quermia-Postcards-1.jpg'),
- ('Dorin', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Dorin-Postcards-1.jpg'),
- ('Champala', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Champala-Postcards-1.jpg'),
- ('Mirial', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Mirial-Postcards-1.jpg'),
- ('Serenno', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Serenno-Postcards-1.jpg'),
- ('Concord Dawn', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Concord-Dawn-Postcards-1.jpg'),
- ('Zolan', 'https://starwarsblog.starwars.com/wp-content/uploads/2021/05/Star-Wars-Zolan-Postcards-1.jpg'),
- 
+INSERT INTO postcards (image_url, location, price, quantity, synopsis, films, url) VALUES
+('assets/images/tatooine.jpg', 'Tatooine', 19.99, 50, 'Desert planet with twin suns.', '["A New Hope", "The Phantom Menace"]', 'https://www.tatooine.com'),
+('assets/images/coruscant.jpg', 'Coruscant', 24.99, 75, 'City-covered planet, capital of the Republic.', '["The Phantom Menace", "Attack of the Clones", "Revenge of the Sith"]', 'https://www.coruscant.com'),
+('assets/images/endor.jpg', 'Endor', 14.99, 30, 'Forest moon with Ewoks.', '["Return of the Jedi"]', 'https://www.endor.com'),
+('assets/images/naboo.jpg', 'Naboo', 22.99, 40, 'Grass-covered planet with lakes.', '["The Phantom Menace", "Attack of the Clones", "The Clone Wars"]', 'https://www.naboo.com'),
+('assets/images/alderaan.jpg', 'Alderaan', 18.99, 20, 'Destroyed planet with peaceful inhabitants.', '["A New Hope"]', 'https://www.alderaan.com'),
+('assets/images/kashyyyk.jpg', 'Kashyyyk', 21.99, 65, 'Wookiee homeworld with massive trees.', '["Revenge of the Sith"]', 'https://www.kashyyyk.com'),
+('assets/images/mustafar.jpg', 'Mustafar', 15.99, 60, 'Volcanic planet with lava rivers.', '["Revenge of the Sith"]', 'https://www.mustafar.com'),
+('assets/images/jakku.jpg', 'Jakku', 12.99, 45, 'Desert scavenger planet.', '["The Force Awakens"]', 'https://www.jakku.com'),
+('assets/images/hoth.jpg', 'Hoth', 17.99, 55, 'Icy planet with Rebel Alliance base.', '["The Empire Strikes Back"]', 'https://www.hoth.com'),
+('assets/images/dagobah.jpg', 'Dagobah', 13.99, 25, 'Swampy planet, Yoda\s exile location.', '["The Empire Strikes Back", "Return of the Jedi"]', 'https://www.dagobah.com'),
+('assets/images/geonosis.jpg', 'Geonosis', 16.99, 70, 'Rocky planet with droid factories.', '["Attack of the Clones"]', 'https://www.geonosis.com'),
+('assets/images/kamino.jpg', 'Kamino', 23.99, 35, 'Ocean planet with cloning facilities.', '["Attack of the Clones"]', 'https://www.kamino.com'),
+('assets/images/utapau.jpg', 'Utapau', 20.99, 48, 'Sinkhole planet with General Grievous.', '["Revenge of the Sith"]', 'https://www.utapau.com'),
+('assets/images/crait.jpg', 'Crait', 14.99, 22, 'Salt-covered planet with abandoned Rebel base.', '["The Last Jedi"]', 'https://www.crait.com'),
+('assets/images/jedha.jpg', 'Jedha', 19.99, 38, 'Holy city destroyed by the Death Star.', '["Rogue One"]', 'https://www.jedha.com'),
+('assets/images/sullust.jpg', 'Sullust', 16.99, 43, 'Volcanic planet with manufacturing facilities.', '["Return of the Jedi"]', 'https://www.sullust.com'),
+('assets/images/moncalamari.jpg', 'Mon Cala', 22.99, 28, 'Ocean planet, home of the Mon Calamari.', '["Return of the Jedi"]', 'https://www.moncalamari.com'),
+('assets/images/mygeeto.jpg', 'Mygeeto', 18.99, 34, 'Icy-cold planet with crystal formations.', '["Revenge of the Sith"]', 'https://www.mygeeto.com'),
+('assets/images/mandalore.jpg', 'Mandalore', 21.99, 53, 'Homeworld of the Mandalorians.', '["The Clone Wars", "Rebels"]', 'https://www.mandalore.com'),
+('assets/images/umbara.jpg', 'Umbara', 17.99, 45, 'Shadowy and dark, home to Umbarans.', '["The Clone Wars"]', 'https://www.umbara.com'),
+('assets/images/felucia.jpg', 'Felucia', 23.99, 37, 'Jungle planet with unique flora.', '["Revenge of the Sith"]', 'https://www.felucia.com'),
+('assets/images/dathomir.jpg', 'Dathomir', 20.99, 41, 'Home to the Nightsisters and Darth Maul.', '["The Clone Wars"]', 'https://www.dathomir.com'),
+('assets/images/lothal.jpg', 'Lothal', 14.99, 26, 'Grassland planet with Imperial presence.', '["Rebels"]', 'https://www.lothal.com'),
+('assets/images/yavin4.jpg', 'Yavin 4', 15.99, 44, 'Moon housing the Rebel base.', '["A New Hope"]', 'https://www.yavin4.com'),
+('assets/images/kessel.jpg', 'Kessel', 21.99, 32, 'Spice mines and the Kessel Run.', '["Solo"]', 'https://www.kessel.com'),
+('assets/images/scarif.jpg', 'Scarif', 18.99, 36, 'Imperial security complex.', '["Rogue One"]', 'https://www.scarif.com');

@@ -1,34 +1,26 @@
 {
   "name": "star-wars-postcards",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD:backend/package.json
-    "start": "node server.js"
-=======
-    "start": "node server.js",
-    "db:init": "psql -U Rafael -f db/schema.sql",
-    "db:seed": "psql -U Rafael -f db/seed.sql"
->>>>>>> f075e08 (finishes backend):package.json
+    "start": "nodemon server.js",
+    "db:init": "psql -U postgres -f db/schema.sql",
+    "db:seed": "psql -U postgres -f db/seed.sql"
   },
   "keywords": [],
-  "author": "",
+  "author": "Addis Jackson",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
+    "client": "^0.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "pg": "^8.11.3",
-<<<<<<< HEAD:backend/package.json
-    "pg-promise": "^11.5.4"
-=======
     "pg-promise": "^11.5.4",
     "pool": "^0.4.1",
     "postgres": "^3.4.3"
->>>>>>> f075e08 (finishes backend):package.json
   },
-  "devDependencies": {},
   "description": ""
 }
