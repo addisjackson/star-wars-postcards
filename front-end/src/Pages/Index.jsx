@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react';
+import Postcards from '../Components/Postcards'
 
 function Index() {
   return (
-	<div>Index</div>
+    <div>
+      <Postcards />
+    </div>
   )
 }
 

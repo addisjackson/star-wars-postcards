@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Stack } from "@chakra-ui/react";
 import Postcard from "./Postcard";
 
@@ -14,12 +14,11 @@ function Postcards() {
 	useEffect(() => {
 		fetch(`${API}/postcards`)
 			.then((response) => response.json())
-			.then((postcards) => setPostcard(postcard))
+			.then((postcards) => setPostcards(postcards))
 			.catch((error) => console.log(error));
 	}, []);
 
 	
-
 	return (
 		<Stack>
 			<div className='Postcards'>

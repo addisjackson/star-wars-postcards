@@ -1,11 +1,11 @@
 import React from "react";
-import { Stack, Flex, Button, Heading, Text, VStack, useBreakpointValue, Center, AbsoluteCenter} from '@chakra-ui/react'
+import { Stack, SimpleGrid, Button, Heading, Text, VStack, useBreakpointValue, Center } from '@chakra-ui/react'
 import { Link } from 'react-router-dom';
 
 
 function Hero() {
 	return (
-		<Flex
+		<SimpleGrid
 			w={"full"}
 			h={"100vh"}
 			backgroundImage={
@@ -18,11 +18,11 @@ function Hero() {
 				justify={"center"}
 				px={useBreakpointValue({ base: 4, md: 8 })}>
 				<Stack maxW={"2xl"} align={"flex-start"} spacing={6}>
-					<Center axis="horizontal">
-						<Heading as='h1' justify='center'>Star Wars Postcards</Heading>
+					<Center>
+						<Heading as='h1' className="hero-heading">Star Wars Postcards</Heading>
 					</Center>
 					<Center>
-						<Text
+						<Text 
 							color={"white"}
 							fontWeight={700}
 							lineHeight={1.2}
@@ -30,19 +30,21 @@ function Hero() {
 						Your Premium Venue for All Your Interstellar Communication Needs
 						</Text>
 					</Center>
-					<Center></Center>
-					<Stack direction={"row"}>
-						<Button
+						<Stack direction={ "row" }>
+					<Center>
+							<Button
+							className="hero-button"
 							bg={"blue.400"}
 							rounded={"full"}
 							color={"black"}
 							_hover={{ bg: "white.500" }}>
 							<Link to='/postcards'>The Force Awaits You!</Link>
 						</Button>
+					</Center>
 					</Stack>
 				</Stack>
 			</VStack>
-		</Flex>
+		</SimpleGrid>
 	);
 }
 

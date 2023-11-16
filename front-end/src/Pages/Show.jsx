@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react';
+import PostcardDetails from '../Components/PostcardDetails';
+import CreatePostcardForm from '../Components/CreatePostcardForm';
+import EditPostcardForm from '../Components/EditPostcardForm'
+
 
 function Show() {
   return (
-	<div>Show</div>
+    <div className='postcard-container'>
+      <PostcardDetails />
+      <PostcardNewForm  />
+    </div>
   )
 }
 
