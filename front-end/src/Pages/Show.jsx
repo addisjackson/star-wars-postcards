@@ -8,7 +8,7 @@ function Show() {
   return (
     <div className='postcard-container'>
       <PostcardDetails />
-      <PostcardNewForm  />
+      <CreatePostcardForm />
     </div>
   )
 }
