@@ -7,6 +7,16 @@ const checkName = (req, res, next) => {
         res.status(400).json({error: "We need a name..."})
     }
 }
+
+const checkLocation = (req, res, next) => {
+    console.log("location is being checked");
+    if (req.body.name) {
+        console.log("we've got a location here!");
+        next();
+    } else {
+        res.status(400).json({error: "We need a location..."})
+    }
+}
 const checkPrice = (req, res, next) => {
     const { price } = req.body;
     const priceRegex = /^\d+(\.\d{1,2})?$/; // Regular expression to validate price format

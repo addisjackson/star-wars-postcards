@@ -1,63 +1,66 @@
-const pool = require('../db/dbConfig');
+const pool = require("../db/dbConfig.js");
 
-module.exports = {
+const getAllPlanets = async () => {
+  try {
+    const allPlanets = await pool.any("SELECT * FROM planets");
+    return allPlanets;
+  } catch (err) {
+    return err;
+  }
+};
 
-  getAllPlanets: async () => {
-    try {
-      const result = await pool.query('SELECT * FROM planets');
-      return result.rows;
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
-  },
+const getPlanet = async (id) => {
+  try {
 
-  getPlanetById: async (planetId) => {
-    try {
-      const result = await pool.query('SELECT * FROM planets WHERE id = $1', [planetId]);
-      return result.rows[0];
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
-  },
+    const onePlanet = await pool.one("SELECT * FROM planets WHERE id=$1", id);
+    return onePlanet;
+  } catch (error) {
 
-  createPlanet: async (newPlanetData) => {
-    try {
-      const { name, climate, temperature, terrain, diameter, population, residents, species, films, synopsis } = req.body;
-      const newPlanetData = req.body
-      const result = await pool.query(
-        'INSERT INTO planets (name, climate, temperature, terrain, diameter, population, residents, species, films, synopsis) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *',
-        [name, climate, temperature, terrain, diameter, population, residents, species, films, synopsis]
-      );
-      return result.rows[0];
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
-  },
+    return error;
+  }
+};
 
-  updatePlanet: async (planetId, updatedPlanetData) => {
-    try {
-      const { name, climate, temperature, terrain, diameter, population, residents, species, films, synopsis } = updatedPlanetData;
-      const result = await pool.query(
-        'UPDATE planets SET name = $1, climate = $2, temperature = $3, terrain = $4, diameter = $5, population = $6, residents = $7, species = $8, films = $9, synopsis = $10 WHERE id = $11 RETURNING *',
-        [name, climate, temperature, terrain, diameter, population, residents, species, films, synopsis, planetId]
-      );
-      return result.rows[0];
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
-  },
+const createPlanet = async (planet) => {
+  const { name, diameter, climate, temperature, terrain, population, residents, species, films, synopsis } = planet;
+  try {
+    const newPlanet = await pool.one(
+      "INSERT INTO planets ([ name, diameter, climate, temperature, terrain, population, residents, species, films, synopsis ]) VALUES ($1, $2, $3, $4, $5), $5, $6, $7, $8, $9, $10 RETURNING *",
+      [name, diameter, climate, temperature, terrain, population, residents, species, films, synopsis ]
+    );
+    return newPlanet;
+  } catch (error) {
+    console.error(error);
+      throw new Error("Failed to create planet in the database");
+  }
+};
 
-  deletePlanet: async (planetId) => {
-    try {
-      const result = await pool.query('DELETE FROM planets WHERE id = $1 RETURNING *', [planetId]);
-      return result.rowCount > 0; // Returns true if at least one row was deleted
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
-  },
+  
+const deletePlanet = async (id) => {
+  try {
+    const deletedPlanet = await pool.one("DELETE FROM planets WHERE id = $1 RETURNING *", id);
+    return deletedPlanet;
+  } catch (err) {
+    return err;
+  }
+};
+
+const updatePlanet = async (planet, id) => {
+  const { name, diameter, climate, temperature, terrain, population, residents, species, films, synopsis } = planet;
+  try {
+  
+    const updatedPlanet = await pool.one("UPDATE planets SET name = $1, diameter = $2, climate = $3, temperature = $4, terrain = $5, population = $6, residents = $7, species = $8, films = $9, synopsis = $10 WHERE id = $11 RETURNING *",
+
+    [name, diameter, climate, temperature, terrain, population, residents, species, films, synopsis ]);
+    return updatedPlanet;
+  } catch (err) {
+    return err;
+  }
+}
+
+module.exports = { 
+  getAllPlanets, 
+  getPlanet, 
+  createPlanet, 
+  deletePlanet,
+  updatePlanet
 };

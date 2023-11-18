@@ -23,8 +23,8 @@ const createPostCard = async (postcard) => {
 const updatePostCard = async (id, postcard) => {
   const { location, price, quantity, synopsis, films, url } = postcard;
   const { rows } = await pool.query(
-    'UPDATE postcards SET location = $1, price = $2, quantity = $3, synopsis = $4, films = $5, url = $6 WHERE id = $7 RETURNING *',
-    [location, price, quantity, synopsis, films, url, id]
+    'UPDATE postcards SET image_url= $1, location = $2, price = $3, quantity = $4, synopsis = $5, films = $6, url = $7 WHERE id = $8 RETURNING *',
+    [image_url, location, price, quantity, synopsis, films, url, id]
   );
   return rows[0];
 };
