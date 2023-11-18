@@ -1,0 +1,27 @@
+{
+  "name": "star-wars-postcards",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "db:init": "psql -U postgres -f db/schema.sql",
+    "db:seed": "psql -U postgres -f db/seed.sql"
+  },
+  "keywords": [],
+  "author": "Addis Jackson",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "client": "^0.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "node": "21.1",
+    "pg": "^8.11.3",
+    "pg-promise": "^11.5.4",
+    "pool": "^0.4.1",
+    "postgres": "^3.4.3"
+  },
+  "description": ""
+}
