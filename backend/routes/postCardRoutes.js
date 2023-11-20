@@ -56,8 +56,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-
-// Define the PUT route
+/** 
 router.put("/:id", checkLocation, checkPrice, checkQuantity, checkFilms, validateUrl, validateJSONKeys, async (req, res) => {
   try {
     const { id } = req.params;
@@ -85,10 +84,30 @@ router.put("/:id", checkLocation, checkPrice, checkQuantity, checkFilms, validat
     return res.status(500).json({ error: "Server error!" });
   }
 });
+*/
 
+router.put("/:id", checkLocation, checkPrice, checkQuantity, checkFilms, validateUrl, validateJSONKeys, async (req, res) => {
+  try {
+    const { id } = "SELECT count(*) FROM postcards" + 1
+    const postcardData = req.body;
+
+    const updatedPostcard = await updatePostCard(id, postcardData);
+
+    if (updatedPostcard) {
+      return res.status(200).json(updatedPostcard);
+    } else {
+      return res.status(404).json({ error: "PostCard not found" });
+    }
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: "Server error!" });
+  }
+});
+
+module.exports = planets;
 
 router.delete("/:id", async (req, res) => {
-  try {
+  try { 
     const { id } = req.params;
 
     const deletedPostcard = await deletePostCard(id);

@@ -63,10 +63,10 @@ const updatePostCard = async (id, postcard) => {
 
 
 // we will have a bunch of exports, hence the object;
-module.exports = { 
-  getAllPostCards, 
-  getPostCard, 
-  createPostCard, 
+module.exports = {
+  getAllPostCards,
+  getPostCard,
+  createPostCard,
   deletePostCard,
   updatePostCard
 };
