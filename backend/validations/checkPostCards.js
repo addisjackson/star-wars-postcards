@@ -114,9 +114,6 @@ const checkTemperature = (req, res, next) => {
         next();
     }
 };
-
-module.exports = { checkFilms, checkResidents, checkSpecies, checkTemperature };
-
   
-module.exports = { checkName, checkPrice, checkQuantity, checkPopulation, checkFilms, checkResidents, checkSpecies, checkTemperature, validateUrl };
+module.exports = { checkName, checkLocation, checkPrice, checkQuantity, checkPopulation, validateJSONKeys, checkFilms, checkResidents, checkSpecies, checkTemperature, validateUrl };
 
