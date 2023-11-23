@@ -30,23 +30,20 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/addisjackson/star-wars-postcards">
+    <img src="/assets/image/startrekcaptains.jpg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Star Wars PostCards</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    "Get them all"
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+View Demo</a>
     ·
     <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/addisjackson/star-wars-postcards/issues">Request Feature</a>
   </p>
 </div>
 
@@ -85,16 +82,11 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+This is a project aimed st bringing the star wars culture and its realism to the masses. It focuses on the various worlds depicted in the films, how they were brought to life matching the with their residents and their physicality ie, diaeter, orbits resulting in landscape and temperature, ensuring the realness of these worlds and thus captivating their audience. 
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+in essence its end goal is to spark the imagination of young upcoming astronauts, helping them to think outside the box of today's norms and breaking the mold that our level of technology has on the stifled  imagination of today's youth.
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
+Let's widen our expanse and forge our own path through the star wars universe.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -102,17 +94,12 @@ Use the `BLANK_README.md` to get started.
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+
 
 * [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-
+*[![Express][Express.js]][Express-url]
+* [![Postgres][Postgres.js]][Postgres-url]
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -133,21 +120,21 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
+1. Fork the repo at 
+ ```sh wwww.github.com/addisjackson/star-wars-postcards.git
+```
+1. Clone your forked repo
+  
+2. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+3. install dependencies 
+```js
+npm install
+express pg pg-promise db dotenv portgres nodemon
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -156,7 +143,7 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+This app would be use purely as a monetary transaction for good/ products between the buyer and seller. It does aim however tio also increase the users knowledge of star wars and the places it covers be they real or imagined and gives us ideas if how vast the universise we live in may extend and the possibilities that may be around each corner.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
@@ -168,12 +155,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ## Roadmap
 
 - [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
@@ -190,9 +172,9 @@ If you have a suggestion that would make this better, please fork the repo and c
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+2. Create your own Branch (`git checkout -b great coder`)
+3. Commit your Changes (`git commit -m 'Add some great codes'`)
+4. Push to the Branch (`git push origin great codes`)
 5. Open a Pull Request
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -209,11 +191,10 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 
 <!-- CONTACT -->
-## Contact
+## Contact:
+Addis Jackson - [Linked In](https://www.linkedin.com/in/addisjackson/)
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [StarWars Postcards](https://www.github.com/addisjackson/Star-Wars-Postcards)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
