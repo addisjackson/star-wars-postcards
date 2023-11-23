@@ -1,21 +1,22 @@
 const express = require('express');
-const { router } = require('./routes/postCardRoutes.js');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const postcards = require('./routes/postCardRoutes');
 const planets = require('./routes/planetsRoutes'); 
 const planetsControllers = require('./controllers/planetsControllers.js');
 const postCardsControllers = require('./controllers/postCardsControllers.js');
+const app = express()
 
-
-app.use(cors());
+app.use(cors())
 app.use(bodyParser.json());
 app.use(express.json());
 
 //app.use('/postcards', postcards);
-app.use('/planets', planets);
-app.use('/postcards', router);
-app.use('/postcards/:id', postCardsControllers);
+app.use('/planets', planetsControllers);
+app.use('/postcards', postCardsControllers);
+
+
+app.get('/planets', planetsControllers)
 
 
 

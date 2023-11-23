@@ -1,66 +1,97 @@
-const pool = require("../db/dbConfig.js");
+const express = require("express");
+const planets = express.Router();
 
-const getAllPlanets = async () => {
-  try {
-    const allPlanets = await pool.any("SELECT * FROM planets");
-    return allPlanets;
-  } catch (err) {
-    return err;
-  }
-};
-
-const getPlanet = async (id) => {
-  try {
-
-    const onePlanet = await pool.one("SELECT * FROM planets WHERE id=$1", id);
-    return onePlanet;
-  } catch (error) {
-
-    return error;
-  }
-};
-
-const createPlanet = async (planet) => {
-  const { name, diameter, climate, temperature, terrain, population, residents, species, films, synopsis } = planet;
-  try {
-    const newPlanet = await pool.one(
-      "INSERT INTO planets ([ name, diameter, climate, temperature, terrain, population, residents, species, films, synopsis ]) VALUES ($1, $2, $3, $4, $5), $5, $6, $7, $8, $9, $10 RETURNING *",
-      [name, diameter, climate, temperature, terrain, population, residents, species, films, synopsis ]
-    );
-    return newPlanet;
-  } catch (error) {
-    console.error(error);
-      throw new Error("Failed to create planet in the database");
-  }
-};
-
-  
-const deletePlanet = async (id) => {
-  try {
-    const deletedPlanet = await pool.one("DELETE FROM planets WHERE id = $1 RETURNING *", id);
-    return deletedPlanet;
-  } catch (err) {
-    return err;
-  }
-};
-
-const updatePlanet = async (planet, id) => {
-  const { name, diameter, climate, temperature, terrain, population, residents, species, films, synopsis } = planet;
-  try {
-  
-    const updatedPlanet = await pool.one("UPDATE planets SET name = $1, diameter = $2, climate = $3, temperature = $4, terrain = $5, population = $6, residents = $7, species = $8, films = $9, synopsis = $10 WHERE id = $11 RETURNING *",
-
-    [name, diameter, climate, temperature, terrain, population, residents, species, films, synopsis ]);
-    return updatedPlanet;
-  } catch (err) {
-    return err;
-  }
-}
-
-module.exports = { 
-  getAllPlanets, 
-  getPlanet, 
-  createPlanet, 
+const {
+  getAllPlanets,
+  getPlanet,
+  createPlanet,
   deletePlanet,
   updatePlanet
-};
+} = require("../queries/planetQueries.js");
+
+const {
+  checkName,
+  checkTemperature,
+  checkPopulation,
+  validateJSONKeys,
+  checkResidents,
+  checkSpecies,
+  checkFilms
+} = require("../validations/checkPostCards.js");
+
+
+// Routes for fetching all planets and getting a specific planet by ID
+planets.get("/", async (req, res) => {
+    const allPlanets = await getAllPlanets();
+    if (allPlanets[0]) {
+      res.status(200).json({success: true, data: {payload: allPlanets} })
+    } else {
+      res.status(500).json({ success: false, data: { error: "Server error did not get data!"} });
+    }
+  } )
+  
+
+  planets.get("/:id", async (req, res) => {
+      const { id } = req.params;
+      const planet = await getPlanet(id);
+      if (planet) {
+        res.json(planet);
+      } else {
+        res.status(404).json({ error: "Planet not found" });
+      }
+    } )
+
+
+// Routes for creating, updating, and deleting planets
+planets.post("/", checkName, checkTemperature, checkPopulation, validateJSONKeys, checkResidents, checkSpecies, checkFilms, async (req, res) => {
+    const { name, diameter, climate, temperature, terrain, population, residents, species, films, synopsis } =  planetData;
+    const planetData = req.body;
+
+    if (!req.body) {
+      res.status(400).json({ error: "Request body is empty" });
+    }
+
+    const newPlanet = await createPlanet(planetData);
+
+    if (!newPlanet) {
+      res.status(400).json({ error: "Planet not created" });
+    }
+
+    // Assuming createPlanet() returns the newly created planet
+    res.status(201).json(newPlanet);
+  })
+
+
+planets.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedPlanet = await deletePlanet(id);
+    if (deletedPlanet.id) {
+      res.status(200).json(deletedPlanet);
+    } else {
+      res.status(404).json("Planet not found!");
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Server error!" });
+  }
+});
+
+planets.put("/:id", checkName, checkTemperature, checkPopulation, validateJSONKeys, checkResidents, checkSpecies, checkFilms, async (req, res) => {
+  try {
+    const { name, diameter, climate, temperature, terrain, population, residents, species, films, synopsis } =  planetData;
+    const planetData = req.body;
+    const { id } = req.params;
+    const updatedPlanet = await updatePlanet(req.body, id);
+    if (updatedPlanet.id) {
+      res.status(200).json(updatedPlanet);
+    } else {
+      res.status(404).json({ error: "Planet not updated" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Server error!" });
+  }
+});
+
+module.exports = planets;

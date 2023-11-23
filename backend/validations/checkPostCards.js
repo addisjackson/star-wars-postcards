@@ -2,21 +2,22 @@ const checkName = (req, res, next) => {
     console.log("name is being checked");
     if (req.body.name) {
         console.log("we've got a name here!");
-        next();
+        next(); // Include next() to proceed to the next middleware or route handler
     } else {
-        res.status(400).json({error: "We need a name..."})
+        res.status(400).json({ error: "We need a name..." });
     }
-}
+};
 
 const checkLocation = (req, res, next) => {
     console.log("location is being checked");
-    if (req.body.name) {
+    if (req.body.location) {
         console.log("we've got a location here!");
-        next();
+        next(); // Include next() to proceed to the next middleware or route handler
     } else {
-        res.status(400).json({error: "We need a location..."})
+        res.status(400).json({ error: "We need a location..." });
     }
-}
+};
+
 const checkPrice = (req, res, next) => {
     const { price } = req.body;
     const priceRegex = /^\d+(\.\d{1,2})?$/; // Regular expression to validate price format
@@ -38,8 +39,6 @@ const checkQuantity = (req, res, next) => {
     }
 };
 
-module.exports = { checkQuantity };
-
 const checkPopulation = (req, res, next) => {
     const { population } = req.body;
 
@@ -50,7 +49,6 @@ const checkPopulation = (req, res, next) => {
     }
 };
 
-module.exports = { checkPopulation };
 
 const validateUrl = (req, res, next) => {
     if (
@@ -63,7 +61,6 @@ const validateUrl = (req, res, next) => {
         res.status(400).json({error: "Tim noticed your URL does not match 'http://' or 'https://' "})
     }
 }
-
 const validateJSONKeys = (data, requiredKeys) => {
     try {
         const parsedData = JSON.parse(data);
@@ -110,13 +107,16 @@ const checkSpecies = (req, res, next) => {
 };
 
 const checkTemperature = (req, res, next) => {
-    const temperature = req.body.temperature;
-    if (typeof temperature === 'number') {
-      next();
+    const { temperature } = req.body;
+    if (temperature === undefined || typeof temperature !== 'number') {
+        res.status(400).json({ error: 'Temperature should be a number.' });
     } else {
-      res.status(400).json({ error: "Temperature should be a number" });
+        next();
     }
-  };
+};
+
+module.exports = { checkFilms, checkResidents, checkSpecies, checkTemperature };
+
   
-module.exports = { checkName, checkPrice, checkQuantity, checkTemperature, checkPopulation, checkFilms, checkResidents, checkSpecies, validateUrl, validateJSONKeys };
+module.exports = { checkName, checkPrice, checkQuantity, checkPopulation, checkFilms, checkResidents, checkSpecies, checkTemperature, validateUrl };
 
