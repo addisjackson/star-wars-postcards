@@ -19,7 +19,7 @@ postcards.get("/:id", async (req, res) => {
 	}
 });
 postcards.get("/", async (req, res) => {
-	const allPostcards = await getAllPostcards();
+	const allPostcards = await getAllPostCards();
 	if (allPostcards[0]) {
 		res.status(200).json(allPostcards);
 	} else {
@@ -57,7 +57,7 @@ postcards.delete("/:id", async (req, res) => {
 
 postcards.put("/:id", async (req, res) => {
 	const { id } = req.params;
-	const updatedPostcard = await updatePostcard(id, req.body);
+	const updatedPostcard = await updatePostCard(id, req.body);
 	if (updatedPostcard.id) {
 		res.status(200).json(updatedPostcard);
 	} else res.status(404).json("No such postcards was found with that id!");
