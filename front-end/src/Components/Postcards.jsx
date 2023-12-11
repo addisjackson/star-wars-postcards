@@ -14,7 +14,7 @@ function Postcards() {
 	useEffect(() => {
 		fetch(`${API}/postcards`)
 			.then((response) => response.json())
-			.then((postcards) => setPostcards(postcards))
+			.then(postcards => setPostcards(postcards))
 			.catch((error) => console.log(error));
 	}, []);
 

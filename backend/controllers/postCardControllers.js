@@ -1,110 +1,66 @@
-const db = require('./db/db');
-const queries = require('../queries/postCards');
+const express = require("express");
+const {
+	getAllPostCards,
+	getPostCardById,
+	createPostCard,
+	updatePostCard,
+	deletePostCard,
+} = require("../queries/postcards.js");
 
-const getAllPostCards = (request, response) => {
-    db.any(queries.getAllPostCards)
-        .then((data) => {
-            response.status(200)
-                .json({
-                    status: 'success',
-                    data: data,
-                    message: 'Retrieved ALL postcards'
-                });
-        })
-        .catch((error) => {
-            response.status(400)
-                .json({
-                    status: 'error',
-                    message: error
-                });
-        });
-}
+const postcards = express.Router();
 
-const getPostCardById = (request, response) => {
-    const id = parseInt(request.params.id);
-    db.any(queries.getPostCardById, [id])
-        .then((data) => {
-            response.status(200)
-                .json({
-                    status: 'success',
-                    data: data,
-                    message: 'Retrieved ONE postcard'
-                });
-        })
-        .catch((error) => {
-            response.status(400)
-                .json({
-                    status: 'error',
-                    message: error
-                });
-        });
-}
+postcards.get("/:id", async (req, res) => {
+	const { id } = req.params;
+	const postcard = await getPostCardById(id);
+	if (postcard) {
+		res.json(postcard);
+	} else {
+		res.status(404).json({ error: "Not Found!" });
+	}
+});
+postcards.get("/", async (req, res) => {
+	const allPostcards = await getAllPostcards();
+	if (allPostcards[0]) {
+		res.status(200).json(allPostcards);
+	} else {
+		res.status(500).json({
+			success: false,
+			data: { error: "Server Error!" },
+		});
+	}
+});
 
-const createPostCard = (request, response) => {
-    const { name, image, description } = request.body;
-    db.none(queries.createPostCard, [name, image, description])
-        .then(() => {
-            response.status(200)
-                .json({
-                    status: 'success',
-                    message: 'Inserted ONE postcard'
-                });
-        })
-        .catch((error) => {
-            response.status(500)
-                .json({
-                    status: 'error',
-                    message: error
-                });
-        });
-}
+postcards.post("/", async (req, res) => {
+	try {
+		const createdPostcard = await createPostCard(req.body);
+		res.json(createdPostcard);
+	} catch (error) {
+		res.status(400).json({ error: "I'm Sorry. An error has occurred!" });
+	}
+});
 
-const updatePostCard = (request, response) => {
-    const id = parseInt(request.params.id);
-    const { name, image, description } = request.body;
-    db.none(queries.updatePostCard, [name, image, description, id])
-        .then(() => {
-            response.status(200)
-                .json({
-                    status: 'success',
-                    message: 'Updated ONE postcard'
-                });
-        })
-        .catch((error) => {
-            response.status(500)
-                .json({
-                    status: 'error',
-                    message: error
-                });
-        });
-}
+postcards.delete("/:id", async (req, res) => {
+	try {
+		const { id } = req.params;
+		const deletedPostcard = await deletePostCard(id);
+		if (deletedPostcard) {
+			res
+				.status(200)
+				.json({ success: true, payload: { data: deletedPostcard } });
+		} else {
+			res.status(404).json("Superhero does not exist!");
+		}
+	} catch (error) {
+		res.send(error);
+	}
+});
 
+postcards.put("/:id", async (req, res) => {
+	const { id } = req.params;
+	const updatedPostcard = await updatePostcard(id, req.body);
+	if (updatedPostcard.id) {
+		res.status(200).json(updatedPostcard);
+	} else res.status(404).json("No such postcards was found with that id!");
+});
 
-const deletePostCard = (request, response) => {
-    const id = parseInt(request.params.id);
-    db.result('DELETE FROM postcards WHERE id = $1', [id])
-        .then((result) => {
-            response.status(200)
-                .json({
-                    status: 'success',
-                    message: `Removed ${result.rowCount} postcard`
-                });
-        })
-        .catch((error) => {
-            response.status(500)
-                .json({
-                    status: 'error',
-                    message: error
-                });
-        });
-}
-
-
-
-module.exports = {
-    getAllPostCards,
-    getPostCardById,
-    createPostCard,
-    updatePostCard,
-    deletePostCard
-}
+module.exports = postcards;

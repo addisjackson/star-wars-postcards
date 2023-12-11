@@ -14,7 +14,7 @@ function Postcard({postcard, id}) {
 				<Image
 					objectFit='cover'
 					maxW={{ base: "100%", sm: "200px" }}
-					src={postcards.image_url}
+					src={postcard.image_url}
 				/>
 
 				<Stack>
