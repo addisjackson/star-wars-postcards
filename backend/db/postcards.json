@@ -1,0 +1,234 @@
+module.exports = [
+    {
+      "image_url": "assets/images/tatooine.jpg",
+      "location": "Tatooine",
+      "price": 19.99,
+      "quantity": 50,
+      "synopsis": "Desert planet with twin suns.",
+      "films": ["A New Hope", "The Phantom Menace"],
+      "url": "https://www.starwars.com/databank/Tatooine"
+    },
+    {
+      "image_url": "assets/images/coruscant.jpg",
+      "location": "Coruscant",
+      "price": 24.99,
+      "quantity": 75,
+      "synopsis": "City-covered planet, capital of the Republic.",
+      "films": ["The Phantom Menace", "Attack of the Clones", "Revenge of the Sith"],
+      "url": "https://www.starwars.com/databank/Coruscant"
+    },
+    {
+      "image_url": "assets/images/endor.jpg",
+      "location": "Endor",
+      "price": 14.99,
+      "quantity": 30,
+      "synopsis": "Forest moon with Ewoks.",
+      "films": ["Return of the Jedi"],
+      "url": "https://www.starwars.com/databank/Endor"
+    },
+    {
+      "image_url": "assets/images/naboo.jpg",
+      "location": "Naboo",
+      "price": 22.99,
+      "quantity": 40,
+      "synopsis": "Grass-covered planet with lakes.",
+      "films": ["The Phantom Menace", "Attack of the Clones", "The Clone Wars"],
+      "url": "https://www.starwars.com/databank/Naboo"
+    },
+    {
+      "image_url": "assets/images/alderaan.jpg",
+      "location": "Alderaan",
+      "price": 18.99,
+      "quantity": 20,
+      "synopsis": "Destroyed planet with peaceful inhabitants.",
+      "films": ["A New Hope"],
+      "url": "https://www.starwars.com/databank/Alderaan"
+    },
+    {
+      "image_url": "assets/images/kashyyyk.jpg",
+      "location": "Kashyyyk",
+      "price": 21.99,
+      "quantity": 65,
+      "synopsis": "Wookiee homeworld with massive trees.",
+      "films": ["Revenge of the Sith"],
+      "url": "https://www.starwars.com/databank/Kashyyyk"
+    },
+    {
+      "image_url": "assets/images/mustafar.jpg",
+      "location": "Mustafar",
+      "price": 15.99,
+      "quantity": 60,
+      "synopsis": "Volcanic planet with lava rivers.",
+      "films": ["Revenge of the Sith"],
+      "url": "https://www.starwars.com/databank/Mustafar"
+    }, {
+        "image_url": "assets/images/jakku.jpg",
+        "location": "Jakku",
+        "price": 12.99,
+        "quantity": 45,
+        "synopsis": "Desert scavenger planet.",
+        "films": ["The Force Awakens"],
+        "url": "https://www.starwars.com/databank/Jakku"
+      },
+      {
+        "image_url": "assets/images/hoth.jpg",
+        "location": "Hoth",
+        "price": 17.99,
+        "quantity": 55,
+        "synopsis": "Icy planet with Rebel Alliance base.",
+        "films": ["The Empire Strikes Back"],
+        "url": "https://www.starwars.com/databank/Hoth"
+      },
+      {
+        "image_url": "assets/images/dagobah.jpg",
+        "location": "Dagobah",
+        "price": 13.99,
+        "quantity": 25,
+        "synopsis": "Swampy planet, Yoda's exile location.",
+        "films": ["The Empire Strikes Back", "Return of the Jedi"],
+        "url": "https://www.starwars.com/databank/Dagobah"
+      },
+      {
+        "image_url": "assets/images/geonosis.jpg",
+        "location": "Geonosis",
+        "price": 16.99,
+        "quantity": 70,
+        "synopsis": "Rocky planet with droid factories.",
+        "films": ["Attack of the Clones"],
+        "url": "https://www.starwars.com/databank/Geonosis"
+      },
+      {
+        "image_url": "assets/images/kamino.jpg",
+        "location": "Kamino",
+        "price": 23.99,
+        "quantity": 35,
+        "synopsis": "Ocean planet with cloning facilities.",
+        "films": ["Attack of the Clones"],
+        "url": "https://www.starwars.com/databank/Kamino"
+      },
+      {
+        "image_url": "assets/images/utapau.jpg",
+        "location": "Utapau",
+        "price": 20.99,
+        "quantity": 48,
+        "synopsis": "Sinkhole planet with General Grievous.",
+        "films": ["Revenge of the Sith"],
+        "url": "https://www.starwars.com/databank/Utapau"
+      },
+      {
+        "image_url": "assets/images/crait.jpg",
+        "location": "Crait",
+        "price": 14.99,
+        "quantity": 22,
+        "synopsis": "Salt-covered planet with abandoned Rebel base.",
+        "films": ["The Last Jedi"],
+        "url": "https://www.starwars.com/databank/Crait"
+      },
+      {
+        "image_url": "assets/images/jedha.jpg",
+        "location": "Jedha",
+        "price": 19.99,
+        "quantity": 38,
+        "synopsis": "Holy city destroyed by the Death Star.",
+        "films": ["Rogue One"],
+        "url": "https://www.starwars.com/databank/Jedha"
+      },
+      {
+        "image_url": "assets/images/sullust.jpg",
+        "location": "Sullust",
+        "price": 16.99,
+        "quantity": 43,
+        "synopsis": "Volcanic planet with manufacturing facilities.",
+        "films": ["Return of the Jedi"],
+        "url": "https://www.starwars.com/databank/Sullust"
+      },
+      {
+        "image_url": "assets/images/moncalamari.jpg",
+        "location": "Mon Cala",
+        "price": 22.99,
+        "quantity": 28,
+        "synopsis": "Ocean planet, home of the Mon Calamari.",
+        "films": ["Return of the Jedi"],
+        "url": "https://www.starwars.com/databank/MonCala"
+      },{
+        "image_url": "assets/images/mygeeto.jpg",
+        "location": "Mygeeto",
+        "price": 18.99,
+        "quantity": 34,
+        "synopsis": "Icy-cold planet with crystal formations.",
+        "films": ["Revenge of the Sith"],
+        "url": "https://www.starwars.com/databank/Mygeeto"
+      },
+      {
+        "image_url": "assets/images/umbara.jpg",
+        "location": "Umbara",
+        "price": 17.99,
+        "quantity": 45,
+        "synopsis": "Shadowy and dark, home to Umbarans.",
+        "films": ["The Clone Wars"],
+        "url": "https://www.starwars.com/databank/Umbara"
+      },
+      {
+        "image_url": "assets/images/mandalore.jpg",
+        "location": "Mandalore",
+        "price": 21.99,
+        "quantity": 53,
+        "synopsis": "Homeworld of the Mandalorians.",
+        "films": ["The Clone Wars", "Rebels"],
+        "url": "https://www.starwars.com/databank/Mandalore"
+      },
+      {
+        "image_url": "assets/images/felucia.jpg",
+        "location": "Felucia",
+        "price": 23.99,
+        "quantity": 37,
+        "synopsis": "Jungle planet with unique flora.",
+        "films": ["Revenge of the Sith"],
+        "url": "https://www.starwars.com/databank/Felucia"
+      },
+      {
+        "image_url": "assets/images/dathomir.jpg",
+        "location": "Dathomir",
+        "price": 20.99,
+        "quantity": 41,
+        "synopsis": "Home to the Nightsisters and Darth Maul.",
+        "films": ["The Clone Wars"],
+        "url": "https://www.starwars.com/databank/Dathomir"
+      },
+      {
+        "image_url": "assets/images/lothal.jpg",
+        "location": "Lothal",
+        "price": 14.99,
+        "quantity": 26,
+        "synopsis": "Grassland planet with Imperial presence.",
+        "films": ["Rebels"],
+        "url": "https://www.starwars.com/databank/Lothal"
+      },
+      {
+        "image_url": "assets/images/yavin4.jpg",
+        "location": "Yavin 4",
+        "price": 15.99,
+        "quantity": 44,
+        "synopsis": "Moon housing the Rebel base.",
+        "films": ["A New Hope"],
+        "url": "https://www.starwars.com/databank/Yavin4"
+      },
+      {
+        "image_url": "assets/images/kessel.jpg",
+        "location": "Kessel",
+        "price": 21.99,
+        "quantity": 32,
+        "synopsis": "Spice mines and the Kessel Run.",
+        "films": ["Solo"],
+        "url": "https://www.starwars.com/databank/Kessel"
+      },
+      {
+        "image_url": "assets/images/scarif.jpg",
+        "location": "Scarif",
+        "price": 18.99,
+        "quantity": 36,
+        "synopsis": "Imperial security complex.",
+        "films": ["Rogue One"],
+        "url": "https://www.starwars.com/databank/Scarif"
+      }
+    ]

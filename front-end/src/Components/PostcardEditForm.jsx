@@ -6,4 +6,4 @@ function PostcardEditForm() {
   )
 }
 
-export default PostcardEditForm
+export default PostcardEditFor;m

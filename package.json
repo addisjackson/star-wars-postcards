@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "mkdirp": "^1.0.4",
-    "promises": "^0.2.5"
+    "npm": "^10.2.4",
+    "promises": "^0.2.5",
+    "vite": "^5.0.4"
   }
 }

@@ -1,7 +1,7 @@
 const postCardRepository = require('../db/postCardRepository');
 
 const getAllPostCards = async () => {
-  try {
+  try{
     return await postCardRepository.getAllPostCards();
   } catch (error) {
     console.error(error);
@@ -25,7 +25,7 @@ const getPostCardById = async (id) => {
 const createPostCard = async (postcardData) => {
   try {
     // Perform any necessary data validation here before passing to repository
-    const newPostCard = await postCardRepository.createPostCard(postcardData);
+    const newPostCard = await postCardRepository.createPostCard(postcardData;
     return newPostCard;
   } catch (error) {
     console.error(error);

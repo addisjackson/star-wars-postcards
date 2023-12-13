@@ -17,7 +17,7 @@ const {
   checkResidents,
   checkSpecies,
   checkFilms
-} = require("../validations/checkPostCards.js");
+} = require("../validations/checkPostcards.js");
 
 
 // Routes for fetching all planets and getting a specific planet by ID
