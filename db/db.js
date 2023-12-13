@@ -12,16 +12,16 @@ const getPostCardById = async (id) => {
 };
 
 const createPostCard = async (postcard) => {
-  const { location, price, quantity, synopsis, films, url } = postcard;
+  const {image_url, location, price, quantity, synopsis, films, url } = postcard;
   const { rows } = await pool.query(
-    'INSERT INTO postcards (location, price, quantity, synopsis, films, url ) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
-    [location, price, quantity, synopsis, films, url]
+    'INSERT INTO postcards (location, price, quantity, synopsis, films, url ) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+    [image_url, location, price, quantity, synopsis, films, url]
   );
   return rows[0];
 };
 
 const updatePostCard = async (id, postcard) => {
-  const { location, price, quantity, synopsis, films, url } = postcard;
+  const {image_url, location, price, quantity, synopsis, films, url } = postcard;
   const { rows } = await pool.query(
     'UPDATE postcards SET image_url= $1, location = $2, price = $3, quantity = $4, synopsis = $5, films = $6, url = $7 WHERE id = $8 RETURNING *',
     [image_url, location, price, quantity, synopsis, films, url, id]

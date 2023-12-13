@@ -2,7 +2,7 @@ const pool = require('../db/dbConfig.js');
 const { checkName, checkPrice, checkQuantity, checkPopulation, checkFilms, checkResidents, checkSpecies, validateUrl, validateJSONKeys } = require('../validations/checkPostCards');
 
 
-const fetchAllPostCards = async() => {
+const getAllPostCards = async() => {
         try {
             const allPostCards = await pool.one("SELECT * FROM postcards");
             return (allPostCards); // This should log the fetched planets
@@ -14,7 +14,7 @@ const fetchAllPostCards = async() => {
 
 const getPostCard = async (id) => {
   try {
-    
+
     const onePostCard = await pool.one("SELECT * FROM postcards WHERE id=$1", id);
     return onePostCard;
   } catch (error) {
@@ -47,7 +47,7 @@ const deletePostCard = async (id) => {
 const updatePostCard = async (postcard, id) => {
   const { image_url, location, price, quantity, synopsis, films, url } = postcard;
   try {
-   
+
     const updatedPostCard = await pool.one("UPDATE postcards SET image_url = $1, location = $2, price = $3, quantity = $4, synopsis = $5, films = $6, url = $7 WHERE id = $8 RETURNING *",
     [image_url, location, price, quantity, synopsis, films, url]);
     return updatedPostCard;
@@ -69,7 +69,7 @@ const getSortedPostCards = async (sort) => {
       } else {
         throw new Error('Invalid sorting parameter');
       }
-    
+
       const { rows } = await pool.query(query);
       return rows;
     } catch (error) {
@@ -77,9 +77,9 @@ const getSortedPostCards = async (sort) => {
       throw error;
     }
   };
-  
- 
- 
+
+
+
  const filterPostCardsByFilm = async (filmTitle) => {
     try {
       const { rows } = await pool.query('SELECT * FROM postcards WHERE $1 = ANY (films)', [filmTitle]);
@@ -91,7 +91,7 @@ const getSortedPostCards = async (sort) => {
  }
 
  module.exports = {
-    fetchAllPostCards,
+   getAllPostCards,
     getPostCard,
     createPostCard,
     updatePostCard,

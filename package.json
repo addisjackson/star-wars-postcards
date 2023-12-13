@@ -16,12 +16,15 @@
     "client": "^0.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
+    "events": "^3.3.0",
     "express": "^4.18.2",
     "node": "21.1",
+    "path": "^0.12.7",
     "pg": "^8.11.3",
     "pg-promise": "^11.5.4",
     "pool": "^0.4.1",
-    "postgres": "^3.4.3"
+    "postgres": "^3.4.3",
+    "user-events": "^0.0.6"
   },
   "description": ""
 }
