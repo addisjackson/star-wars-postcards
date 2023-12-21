@@ -29,7 +29,7 @@ INSERT INTO planets (name, diameter, climate, temperature, terrain, population, 
 
 
 INSERT INTO postcards (image_url, location, price, quantity, synopsis, films, url) VALUES
-('assets/images/tatooine.jpg', 'Tatooine', 19.99, 50, 'Desert planet with twin suns.', '["A New Hope", "The Phantom Menace"]', 'https://www.starwars.com/databank/Tatooine'),
+('./assets/images/tatooine.jpg', 'Tatooine', 19.99, 50, 'Desert planet with twin suns.', '["A New Hope", "The Phantom Menace"]', 'https://www.starwars.com/databank/Tatooine'),
 ('assets/images/coruscant.jpg', 'Coruscant', 24.99, 75, 'City-covered planet, capital of the Republic.', '["The Phantom Menace", "Attack of the Clones", "Revenge of the Sith"]', 'https://www.starwars.com/databank/Coruscant'),
 ('assets/images/endor.jpg', 'Endor', 14.99, 30, 'Forest moon with Ewoks.', '["Return of the Jedi"]', 'https://www.starwars.com/databank/Endor'),
 ('assets/images/naboo.jpg', 'Naboo', 22.99, 40, 'Grass-covered planet with lakes.', '["The Phantom Menace", "Attack of the Clones", "The Clone Wars"]', 'https://www.starwars.com/databank/Naboo'),

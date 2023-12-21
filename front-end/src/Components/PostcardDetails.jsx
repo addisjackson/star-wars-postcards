@@ -1,14 +1,20 @@
-import { useState, useEffect } from 'react';
-import {Link, useParams, useNavigate} from 'react-router-dom';
+import React from 'react';
 
-const API = import.meta.env.VITE_API_URL
-function PostcardDetails() {
-  const [ postcard, setPostcard ] = useState("");
-
+const PostcardDetails = ({ postcard, addToCart, deleteFromCart }) => {
+  const { location, imageUrl, price, quantity, synopsis, url } = postcard;
 
   return (
-	<div>PostcardDetails</div>
-  )
-}
+    <div className="postcard-details">
+      <img src={imageUrl} alt={location} />
+      <h2>{location}</h2>
+      <p>Price: {price}</p>
+      <p>Quantity: {quantity}</p>
+      <p>Synopsis: {synopsis}</p>
+      <p>URL: {url}</p>
+      <button onClick={() => addToCart(postcard)}>Add to Cart</button>
+      <button onClick={() => deleteFromCart(postcard)}>Delete from Cart</button>
+    </div>
+  );
+};
 
-export default PostcardDetails
+export default PostcardDetails;

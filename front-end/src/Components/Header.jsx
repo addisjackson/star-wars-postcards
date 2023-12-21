@@ -1,12 +1,18 @@
-import React from 'react'
-import NavBar from './NavBar'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Header() {
+const Header = () => {
   return (
-    <div className="Header">
-      <NavBar />
-  </div>
-  )
-}
+    <header className="header">
+      <h1>Star Wars Postcards</h1>
+      <nav>
+        <Link to="/postcards">Postcards</Link>
+        <Link to="/planets">Planets</Link>
+      </nav>
+      {/* SearchBar Component */}
+      {/* Filter Component */}
+    </header>
+  );
+};
 
-export default Header
+export default Header;

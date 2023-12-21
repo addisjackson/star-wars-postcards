@@ -1,26 +1,17 @@
-import React, { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-
-import Home from './Pages/Home';
-import Index from './Pages/Index';
-import Show from './Pages/Show';
-import Four0Four from './Pages/Four0Four';
- 
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import LandingPage from './components/LandingPage';
+import PostcardsPage from './components/PostcardsPage';
 
 function App() {
   return (
-		<div className='App'>
-			<Router>
-				<Routes>
-					<Route path='/' element={<Home />} />
-					<Route path='/postcards/' element={<Index />} />
-					<Route path='/postcards/:id' element={<Show />} />
-					<Route path='*' element={<Four0Four />} />
-				</Routes>
-			</Router>
-		</div>
-	);
+    <Router>
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <Route path="/postcards" component={PostcardsPage} />
+      </Switch>
+    </Router>
+  );
 }
 
-export default App
+export default App;

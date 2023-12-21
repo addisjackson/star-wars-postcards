@@ -7,91 +7,61 @@ const {
   createPlanet,
   deletePlanet,
   updatePlanet
-} = require("../queries/planetQueries.js");
+} = require("../queries/planets.js");
+const {  checkName, checkTemperature, checkPopulation, checkResidents, checkSpecies, checkFilms, validateJSONKeys } = require("../validations/checkPostcards.js");
 
-const {
-  checkName,
-  checkTemperature,
-  checkPopulation,
-  validateJSONKeys,
-  checkResidents,
-  checkSpecies,
-  checkFilms
-} = require("../validations/checkPostcards.js");
-
-
-// Routes for fetching all planets and getting a specific planet by ID
 planets.get("/", async (req, res) => {
-    const allPlanets = await getAllPlanets();
-    if (allPlanets[0]) {
-      res.status(200).json({success: true, data: {payload: allPlanets} })
-    } else {
-      res.status(500).json({ success: false, data: { error: "Server error did not get data!"} });
-    }
-  } )
-  
+  const allPlanets = await getAllPlanets();
+  if (allPlanets[0]) {
+    res.status(200).json(allPlanets);
+  } else {
+    res.status(500).json({ error: "server error!" });
+  }
+});
 
-  planets.get("/:id", async (req, res) => {
-      const { id } = req.params;
-      const planet = await getPlanet(id);
-      if (planet) {
-        res.json(planet);
-      } else {
-        res.status(404).json({ error: "Planet not found" });
-      }
-    } )
+planets.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  const planet = await getPlanet(id);
+  if (planet) {
+    res.json(planet);
+  } else {
+    res.status(404).json({ error: "not found" });
+  }
+});
 
-
-// Routes for creating, updating, and deleting planets
-planets.post("/", checkName, checkTemperature, checkPopulation, validateJSONKeys, checkResidents, checkSpecies, checkFilms, async (req, res) => {
-    const { name, diameter, climate, temperature, terrain, population, residents, species, films, synopsis } =  planetData;
-    const planetData = req.body;
-
-    if (!req.body) {
-      res.status(400).json({ error: "Request body is empty" });
-    }
-
-    const newPlanet = await createPlanet(planetData);
-
-    if (!newPlanet) {
-      res.status(400).json({ error: "Planet not created" });
-    }
-
-    // Assuming createPlanet() returns the newly created planet
-    res.status(201).json(newPlanet);
-  })
+planets.post("/", [checkName, checkTemperature, checkPopulation, checkResidents, checkSpecies, checkFilms, validateJSONKeys], async (req, res) => {
+  try {
+    const planet = await createPlanet(req.body);
+    res.json(planet);
+  } catch (error) {
+    // Handle the error appropriately
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
 
 
 planets.delete("/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const deletedPlanet = await deletePlanet(id);
-    if (deletedPlanet.id) {
-      res.status(200).json(deletedPlanet);
-    } else {
-      res.status(404).json("Planet not found!");
-    }
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Server error!" });
+  const { id } = req.params;
+  const deletedPlanet = await deletePlanet(id);
+  // if our response has an ID we are good to go!
+  // an error will NOT have an id
+  if (deletedPlanet.id) {
+    res.status(200).json(deletedPlanet)
+  } else {
+    res.status(404).json("Planet not found!");
   }
 });
 
-planets.put("/:id", checkName, checkTemperature, checkPopulation, validateJSONKeys, checkResidents, checkSpecies, checkFilms, async (req, res) => {
-  try {
-    const { name, diameter, climate, temperature, terrain, population, residents, species, films, synopsis } =  planetData;
-    const planetData = req.body;
-    const { id } = req.params;
-    const updatedPlanet = await updatePlanet(req.body, id);
-    if (updatedPlanet.id) {
-      res.status(200).json(updatedPlanet);
-    } else {
-      res.status(404).json({ error: "Planet not updated" });
-    }
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Server error!" });
+planets.put("/:id",  checkName, checkTemperature, checkPopulation, checkResidents, checkSpecies, checkFilms, validateJSONKeys, async (req, res) => {
+  const { id } = req.params;
+  const updatedPlanet = await updatePlanet(req.body, id);
+  if (updatedPlanet.id) {
+    res.status(200).json(updatedPlanet);
+  } else {
+    res.status(404).json({error: "Planet not updated."});
   }
-});
+})
 
 module.exports = planets;
+// EXPORT our Planets Router

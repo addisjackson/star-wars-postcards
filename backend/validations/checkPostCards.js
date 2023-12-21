@@ -55,7 +55,7 @@ const validateUrl = (req, res, next) => {
         req.body.url.substring(0, 7) === "http://" || 
         req.body.url.substring(0, 8) === "https://"
     ) {
-        console.log("URL checks out! because tim likes console logs")
+        console.log("URL checks out!")
         next();
     } else {
         res.status(400).json({error: "Tim noticed your URL does not match 'http://' or 'https://' "})
@@ -65,12 +65,10 @@ const validateJSONKeys = (data, requiredKeys) => {
     try {
         const parsedData = JSON.parse(data);
         const dataKeys = Object.keys(parsedData);
-        for (const key of requiredKeys) {
-            if (!dataKeys.includes(key)) {
+            if (!dataKeys) {
                 return false;
             }
-        }
-        return true;
+        return true
     } catch (error) {
         return false;
     }
@@ -78,11 +76,10 @@ const validateJSONKeys = (data, requiredKeys) => {
 
 const checkFilms = (req, res, next) => {
     const { films } = req.body;
-    const requiredKeys = ['films'];
-    if (typeof films === 'string' && validateJSONKeys(films, requiredKeys)) {
+    if (typeof films === 'string' (films)) {
         next();
     } else {
-        res.status(400).json({ error: 'Films should be a valid JSON object with a "films" key.' });
+        res.status(400).json({ error: 'Films should be a valid JSON object'});
     }
 };
 

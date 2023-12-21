@@ -1,12 +1,16 @@
-const { Pool } = require('pg');
+const pgp = require("pg-promise")();
+require("dotenv").config();
+// config object to grab all our environment vars for postgres
+const cn = {
+    host: process.env.PG_HOST,
+    port: process.env.PG_PORT,
+    database: process.env.PG_DATABASE,
+    user: process.env.PG_USER,
+}
+// invoke PG-promise with our connection object
 
-const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  name:process.env.DB_NAME,
-  database: process.env.DB_DATABASE,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT || 5454
-});
+const db = pgp(cn);
 
-module.exports = pool;
+
+module.exports = db;
+ 

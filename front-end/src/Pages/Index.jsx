@@ -1,9 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import LandingPage from './components/LandingPage';
+import PostcardsPage from './components/PostcardsPage';
 
-function Index() {
+function App() {
   return (
-	<div>Index</div>
-  )
+    <Router>
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <Route path="/postcards" component={PostcardsPage} />
+      </Switch>
+    </Router>
+  );
 }
 
-export default Index
+export default App;
