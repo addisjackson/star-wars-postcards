@@ -53,7 +53,7 @@ postcards.delete("/:id", async (req, res) => {
   }
 });
 
-postcards.put("/:id",  checkName, checkPopulation, checkQuantity, validateUrl, checkFilms, validateJSONKeys, async (req, res) => {
+postcards.put("/:id",  checkLocation, checkPrice, checkQuantity, validateUrl, checkFilms, validateJSONKeys, async (req, res) => {
   const { id } = req.params;
   const updatedPostcard = await updatePostcard(req.body, id);
   if (updatedPostcard.id) {
